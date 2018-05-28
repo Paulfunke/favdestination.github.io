@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<!-- HTML5 -->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+		<meta name="author + date" content="hidden information; 2017-09-11T16:55:45+02:00">
+		<meta name="robots" content="noindex,nofollow">
+		<meta name="description" content="Dieser Beschreibungstext soll mit in der Suchergebnisliste erscheinen.">
+		<meta name="keywords" lang="en-us" content="New York, City, USA">
+		<link rel="stylesheet" type="text/css" href="design.css"/>
+		<style type="text/css">
+		<!--
+			body {
+			background-color: #A9E2F3;
+			}
+			.Thumb {
+				list-style: none;
+				}
+
+				.Content {
+				  position: fixed;
+					top: 0;
+					left: 0;
+					padding: 0;
+					background-color: hsla(0, 0%, 2%, 0.5);
+					height: 100%;
+					width: 100%;
+				  transform: translate(0%, 0%) scale(0,0);
+				  opacity: 0;
+				  transition: all 300ms ease-in-out;
+					z-index: 5;
+				}
+				.Content:target {
+				  opacity: 1;
+				  transform: translate(0, 0) scale(1,1);
+				}
+			#nojava{
+				.popup {
+				margin: 75px auto;
+				padding: 20px;
+				background: #fff;
+				border: 1px solid #666;
+				width: 300px;
+				box-shadow: 0 0 50px rgba(0,0,0,0.5);
+				position: relative;
+				}
+				.overlay:target {
+				visibility: visible;
+				opacity: 1;
+				}
+				
+				.close {
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				top: 20px;
+				right: 20px;
+				opacity: 0.8;
+				transition: all 200ms;
+				font-size: 24px;
+				font-weight: bold;
+				text-decoration: none;
+				color: #666;
+				}
+			}
+			a:link{color:#DF0101;}
+			a:visited{color:#DF0101;}
+			a:hover{color:#FFFFFF;}
+			a:active{color:#DF0101;}
+			a:hover {background-color: #DF0101;}
+			h3 {margin-bottom: 0px;}
+			h3 {margin-left:0.5em; padding-left: 0.5em;}
+			h3 {color:#FFFFFF;}
+			ul {margin-left: 1.5em; padding-left: 1.5em;}
+			#picture1
+			{
+				float:left;
+				width: 30%;
+				height: 100%;
+				margin-bottom: 0.5em;
+				margin-left: 0em;
+				padding-left: 0em;
+			}
+			
+			.row > .column {padding: 0 8px;}
+			.row:after {  content: "";
+			display: table;
+			clear: both;
+			}
+
+			.column {
+			float: left;
+			width: 20%;
+			}
+
+			.modal {
+			display: none;
+			position: fixed;
+			z-index: 1;
+			padding-top: 125px;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: none;
+			}
+
+			.modal-content {
+			position: relative;
+			background-color: none;
+			margin: auto;
+			padding: 0;
+			width: 90%;
+			max-width: 500px;
+			}
+
+			.close {
+			color: white;
+			position: absolute;
+			top: 10px;
+			right: 25px;
+			font-size: 35px;
+			font-weight: bold;
+			}
+
+			.close:hover,
+			.close:focus {
+			color: #A9E2F3;
+			text-decoration: none;
+			cursor: pointer;
+			}
+
+			.mySlides {
+			display: none;
+			}
+
+			.prev,
+			.next {
+			cursor: pointer;
+			position: absolute;
+			top: 50%;
+			width: auto;
+			padding: 16px;
+			margin-top: -50px;
+			color: white;
+			font-weight: bold;
+			font-size: 20px;
+			transition: 0.6s ease;
+			border-radius: 0 0px 0px 0;
+			user-select: none;
+			-webkit-user-select: none;
+			}
+
+			.next {
+			right: 0;
+			border-radius: 0px 0 0 0px;
+			}
+
+			.prev:hover,
+			.next:hover {
+			background-color: rgba(0, 0, 0, 0.8);
+			}
+
+			.numbertext {
+			color: #f2f2f2;
+			font-size: 12px;
+			padding: 8px 12px;
+			position: absolute;
+			top: 0;
+			}
+
+			.caption-container {
+			text-align: center;
+			background-color: none;
+			padding: 2px 16px;
+			color: #2E2EFE;
+			}
+
+			img.demo {
+			opacity: 0.6;
+			}
+
+			.active,
+			.demo:hover {
+			opacity: 1;
+			}
+
+			img.hover-shadow {
+			transition: 0.3s
+			}
+
+			.hover-shadow:hover {
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+			}
+		-->
+		
+			body {font-family: Raleway, 'Lucida Sans Unicode', sans-serif}
+		
+			img.desaturate {
+				filter: grayscale(100%);
+				-webkit-filter: grayscale(100%);
+				-moz-filter: grayscale(100%);
+				-ms-filter: grayscale(100%);
+				-o-filter: grayscale(100%);
+				filter: url(desaturate.svg#greyscale);
+				filter: gray;
+				-webkit-filter: grayscale(1);
+			}
+			
+			img.desaturate:hover {
+				filter: none;
+			}
+
+			.navbar a {
+			float: center;
+			font-size: 16px;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			}
+
+			.dropdown {
+			float: center;
+			overflow: hidden;
+			border-radius: 3px;
+			margin: 0cm 2cm 0cm 1.5cm;
+			}
+
+			.dropdown .dropbtn {
+			font-size: 16px;	
+			font-family: Times New Roman;
+			border: none;
+			outline: none;
+			color: #000000;
+			padding: 14px 16px;
+			background-color: inherit;
+			border-radius: 3px;
+			margin: 0cm 2cm 0cm 1.5cm;
+			}
+
+			.navbar a:hover, .dropdown:hover .dropbtn {
+			background-color: #DF0101;
+			border-radius: 3px;
+			margin: 0cm 0cm 0cm 1.5cm;
+			}
+
+			
+			.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #f9f9f9;
+			min-width: 160px;
+			z-index: 1;
+			border-radius: 3px;
+			margin: 0cm 0cm 0cm 1.5cm;
+			}
+
+			.dropdown-content a {
+			float: none;
+			background: black;
+			color: white;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+			text-align: left;
+			border-radius: 3px;
+			margin: 0cm 0cm 0cm 0cm;
+			}
+
+			.dropdown-content a:hover {
+			background-color: #DF0101;
+			border-radius: 3px
+			margin: 0cm 0cm 0cm 1.5cm;
+			}
+
+			.dropdown:hover .dropdown-content {
+			display: block;
+			}
+			
+			p {
+			margin: 0cm 3cm 0cm 3cm;
+			}
+			
+			ul {
+			margin: 0cm 3cm 0cm 3cm;
+			}
+			
+			blockquote {
+			margin: 1cm 3cm 0cm 4cm;
+			}
+			
+			iframe {
+			margin: 0cm 1cm 0cm 3cm;
+			}
+			
+			html, body {
+			  background:url(image/a0e324bfd74d777b34d2012170ec173a.jpg);
+			  background-size:cover;
+			}
+		</style>
+		<script LANGUAGE="JavaScript">
+		<script type="text/javascript">
+			function pop(file)
+			{
+			helpwindow = window.open(file,"pophelp","f1,f2,f3");
+			helpwindow.focus();
+			return false;
+			}
+		</script>
+		<script>
+			function openModal() {
+			document.getElementById('myModal').style.display = "block";
+			}
+
+			function closeModal() {
+			document.getElementById('myModal').style.display = "none";
+			}
+
+			var slideIndex = 1;
+			showSlides(slideIndex);
+
+			function plusSlides(n) {
+			showSlides(slideIndex += n);
+			}
+
+			function currentSlide(n) {
+			showSlides(slideIndex = n);
+			}
+
+			function showSlides(n) {
+			var i;
+			var slides = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("demo");
+			var captionText = document.getElementById("caption");
+			if (n > slides.length) {slideIndex = 1}
+			if (n < 1) {slideIndex = slides.length}
+			for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";
+			}
+			for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active", "");
+			}
+			slides[slideIndex-1].style.display = "block";
+			dots[slideIndex-1].className += " active";
+			captionText.innerHTML = dots[slideIndex-1].alt;
+			}
+		</script>
+		<title> New York City </title>
+		<noscript>
+			<li id="Thumb1" class="Thumb"><a href="#Content1"><img src="bild.JPG" width="200px"></a></li>
+			<div id="Content1" class="Content"><a href="#"><img src="bild.jpg" width="600px"></a></div>
+		<div class="overlay">
+		<div class="popup">
+		</div>
+		</div>
+		<a href="popup-window.html">Click Me</a>
+		<div id="popup1" class="overlay">
+		<div class="popup">
+		<a href="popup-window.html">&times;</a>
+		</div>
+		</div>
+		Damit diese Website korrekt angezeigt werden kann, muss <b>JavaScript</b> in Ihrem Browser aktiviert sein.
+		<br>
+		<br>
+		Anleitung zum Aktivieren von <b><a href="https://support.google.com/adsense/answer/12654?hl=de">JavaScript</a></b>
+		</noscript>
+	</head>
+	<body>
+		<h1 align="center">
+		<font color="#DF0101">New</font>
+		<font color="#DF0101">York</font>
+		<font color="#DF0101">City</font>
+		</h1>
+		<p>
+		<img src="image/1j+ojl1KOMkX9WyofBe43D6kivWBqBFInB3JwXs1M3EMoAJtlSIohvts9f4z.png">
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P9FVTRJ"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<div>
+			<script>
+				(function() {
+				var cx = '008126860753599007942:6nz4j5bst_q';
+				var gcse = document.createElement('script');
+				gcse.type = 'text/javascript';
+				gcse.async = true;
+				gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(gcse, s);
+				})();
+			</script>
+			<gcse:search></gcse:search>
+		</div>
+		<br>
+		<br>
+		<br>
+		<form name=metasearch method=POST accept-charset="UTF-8" action='http://ixquick.com/do/search' style="margin:0; padding:0;" onSubmit="javascript:document.metasearch.query.value=document.metasearch.keyword.value;" ><table border="0" cellspacing="0" cellpadding="4" bgcolor="#FFFFFF" style=" border:1px solid grey"><tr><td><a href='http://ixquick.com'><img alt=Ixquick src='http://ixquick.com/graphics/ixquick_small_logo.gif' border="0"/></a></td><td><INPUT type=hidden name=from value=searchbox><input name=language type=hidden value=deutsch ><input type=hidden name=cat value=web><input name=query type=hidden size=32><input name=keyword type=text size=32><input type=hidden name=cmd value="process_search"><input type=hidden name=frm value=sb>  </td><td><input type=Submit value="Suche"></td></tr></table> <!--LBS--><!--LBE--> </form>
+		<div class="dropdown">
+		<button class="dropbtn"><b>Menu</b>
+			<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+			<a href="html-test1.html">Home</a>
+			<a href="#">AGB</a>
+			<a href="#">Datenschutzhinweise</a>
+			<a href="#">Impressum</a>
+		</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<iframe frameborder="0" class="juxtapose" width="600" height="500" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=28ae8f3e-4702-11e8-b263-0edaf8f81e27" align=left></iframe>
+			<style>
+			.embed-container {
+			position: relative;
+			padding-bottom: 56.25%; /* ratio 16x9 */
+			height: 0;
+			overflow: hidden;
+			width: 100%;
+			height: auto;
+			}
+			.embed-container iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			}
+			/* ratio 4x3 */
+			.embed-container.ratio4x3 {
+			padding-bottom: 62%;
+			}
+			</style>
+		<div id="navigation_bar">
+			<p>
+				<b>New York City</b> ist eine <a href="https://de.wikipedia.org/wiki/Weltstadt">Weltstadt</a href>
+				an der <a href="https://de.wikipedia.org/wiki/Ostk%C3%BCste_der_Vereinigten_Staaten">Ostküste</a href>
+				der <a href="https://de.wikipedia.org/wiki/Vereinigte_Staaten">Vereinigten Staaten</a href>.
+				Sie liegt im <a href="https://de.wikipedia.org/wiki/Bundesstaat_der_Vereinigten_Staaten">Bundesstaat</a href>
+				<a href="https://de.wikipedia.org/wiki/New_York_(Bundesstaat)">New York</a href>
+				und ist mit mehr als acht Millionen Einwohnern die bevölkerungsreichste Stadt der Vereinigten Staaten.
+				<br>
+				Die <a href="https://de.wikipedia.org/wiki/New_York_Metropolitan_Area">Metropolregion New York</a href>
+				mit 18,9 Millionen Einwohnern ist einer der bedeutendsten <a href="https://de.wikipedia.org/wiki/Wirtschaftsraum">Wirtschaftsräume</a href>
+				und Handelsplätze der Welt, Sitz vieler internationaler Konzerne und Organisationen wie der
+				<a href="https://de.wikipedia.org/wiki/Vereinte_Nationen">Vereinten Nationen</a href> sowie wichtiger
+				<a href="https://de.wikipedia.org/wiki/Seehafen">Seehafen</a href> an der amerikanischen Ostküste.
+				<br>
+				<br>
+				Die Stadt genie&szligt mit ihrer gro&szligen Anzahl an Sehenswürdigkeiten, den 500 Galerien, etwa 200 Museen,
+				mehr als 150 Theatern und mehr als 18.000 Restaurants Weltruf auch in den Bereichen Kunst und Kultur und verzeichnet
+				jedes Jahr etwa 50 Millionen Besucher, davon knapp 12 Millionen aus dem Ausland.
+				Laut <a href="https://de.wikipedia.org/wiki/Forbes_(Zeitschrift)">Forbes Magazine</a href> ist New York City die Stadt mit den
+				höchsten <a href="https://de.wikipedia.org/wiki/Lebenshaltungskosten">Lebenshaltungskosten</a href> in den Vereinigten Staaten
+				sowie eine der teuersten Städte weltweit.
+				<br>
+				<br>
+				Nachdem 1524 <a href="https://de.wikipedia.org/wiki/Giovanni_da_Verrazano">Giovanni da Verrazano</a> und 1609
+				<a href="https://de.wikipedia.org/wiki/Henry_Hudson">Henry Hudson</a> die Gegend des heutigen New Yorks erforscht hatten,
+				siedelten ab 1610 niederländische Kaufleute an der Südspitze der Insel
+				<a href="https://de.wikipedia.org/wiki/Manhattan#Geschichte">Manna-Hatta</a> und bald darauf an der Westspitze von
+				<a href="https://de.wikipedia.org/wiki/Long_Island">Long Island</a>, dem heutigen Brooklyn.
+				<br>
+				Erst 1626 kaufte <a href="https://de.wikipedia.org/wiki/Peter_Minuit">Peter Minuit</a> den Einheimischen, wahrscheinlich
+				<a href="https://de.wikipedia.org/wiki/Lenni_Lenape">Lenni-Lenape-Indianern</a>, die Insel „Manna-hatta“ für Waren
+				im Wert von 60 Gulden ab. Die damit begründete Siedlung erhielt danach den Namen
+				<a href="https://de.wikipedia.org/wiki/Nieuw_Amsterdam">Nieuw Amsterdam</a> und war zunächst Hauptstadt
+				der Kolonie <a href="https://de.wikipedia.org/wiki/Nieuw_Nederland">Nieuw Nederland</a>, bis sie 1664
+				von den Briten erobert wurde und die Stadt den seither gültigen Namen bekam.
+				Ihr Aufstieg zur <a href="https://de.wikipedia.org/wiki/Weltstadt">Weltstadt</a> begann 1825
+				mit der Fertigstellung des <a href="https://de.wikipedia.org/wiki/Eriekanal">Eriekanals</a>.
+				<b>
+				<span style="color:#FF8000;">
+				<br>
+				<blockquote>		
+				„Herzlich willkommen in New York, der atemberaubendsten Stadt der Welt!“
+				</blockquote>
+				</span>
+				</b>
+				<br>
+				<br>
+				<p>
+				Na gut, das war jetzt vielleicht ein wenig übertrieben. Also das mit dem „Herzlich willkommen“.
+				Denn in New York sind Sie ja – leider – noch gar nicht, wenn Sie daheim am Computer sitzen und diese Website angesteuert haben.
+				Noch geht es darum, Ihren Urlaub in New York zu planen. Und dafür sind Sie hier genau an der richtigen Adresse!
+				<br>
+				Wenn Sie bei uns gelandet sind, ist es nicht mehr weit bis zum Ziel Ihrer Reise. Wir liefern Ihnen alle wichtigen Informationen,
+				die Sie für Ihre Reisevorbereitung und auch für den Aufenthalt in der Stadt am Hudson River brauchen.
+				Und das nicht nur extrem übersichtlich und aktuell, sondern vor allem komplett auf Deutsch. So viel Service muss sein!
+				Legen Sie also direkt los und starten Sie zunächst mit Ihrer imaginären Reise durch die Straßen von New York.
+				Lassen Sie sich von uns inspirieren – aber Vorsicht: Für Fernweh können wir keinerlei Haftung übernehmen!
+				<p>
+			</p>
+			<br>
+			<img style="float:right;" src="image/bild5.jpg" title="View from above" hspace="20cm" width="20%" height="auto" class="desaturate thumbnail"></img>
+			</p>
+		</div>
+		<p style="margin-bottom:10pt">
+		<div align="left">
+			<b>
+			<section>
+			<h3>
+		<p style="padding-left= 1em;">
+				Sehenswürdigkeiten:
+				<br>
+				<br>
+			</h3>
+			</section>
+			</b>
+		</div>
+		<nav>
+			<ul>
+				<em>
+				<b>
+				<li>&nbsp <a href="https://de.wikipedia.org/wiki/Freiheitsstatue">Freiheitsstatue</a href>
+				<li>&nbsp <a href="https://de.wikipedia.org/wiki/Empire_State_Building">Empire State Building</a href>
+				<li>&nbsp <a href="https://de.wikipedia.org/wiki/Brooklyn_Bridge">Brooklyn Bridge</a href>
+				<li>&nbsp <a href="https://de.wikipedia.org/wiki/Grand_Central_Terminal">Grand Central Terminal</a href>
+				<li>&nbsp <a href="https://de.wikipedia.org/wiki/Ellis_Island">Ellis Island</a href>
+				<li>&nbsp <a href="https://de.wikipedia.org/wiki/Fifth_Avenue">Fifth Avenue</a href>
+				<li>&nbsp <a href="https://de.wikipedia.org/wiki/Central_Park">Central Park</a href>
+				</b>
+				</em>
+			</ul>	
+		</nav>
+		</p>
+		<br><br>
+		<script src="ihr-js-verzeichnis/lightbox.js"></script>
+		<script>
+			lightbox.option({
+			  'resizeDuration': 200,
+			  'wrapAround': true
+			});
+		</script>
+	<br>
+	<br>
+		<p>
+		<footer>
+		<div align="left">
+			<b>
+			<section>
+			<h3>
+		<p style="padding-left= 1em;">
+			Quellen:
+			<br>
+			<br>
+			</h3>
+			</section>
+			</b>
+		</div>
+		<br>
+		<nav>
+			<ul>
+				<em>
+				<b>
+					<li><a href="https://www.wikipedia.org/">Wikipedia</a>
+					<li><a href="http://www.newyork.de/">www.newyork.de</a></b></em>
+		</p>
+		</p>
+		</footer>
+	</body>
+</html>
